@@ -1,5 +1,7 @@
 # intuitFolderExplorer
 Web page using that simulate folders explorer on web browser, using React.JS and TypeScript.
+
+The project was built and developed using react-start-app environment.
 # Installation and usage:
 cd folders-explorer
 

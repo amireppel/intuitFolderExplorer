@@ -1,9 +1,16 @@
-.App {
-  text-align: center;
-  width: 30em;
-  margin: auto;
-}
 
+@media only screen and (max-width: 600px){
+.App {
+ margin-left:1em;
+  
+}
+}
+@media only screen and (min-width: 600px){
+  .App {
+   margin-left:4em;
+    
+  }
+}
 .App-Header {
   margin-top: 0.5em;
   font-size: 2.5em;
@@ -11,14 +18,16 @@
 }
 
 .Back-Arrow {
-  font-size: 2em;
+  font-size: 3em;
+  font-weight: bold;
   color: green;
   cursor: pointer;
 }
 
 .Root-Folder {
-  font-size: 2em;
+ 
   color: green;
+  min-height: 3em;
 }
 
 .Folder-Name-Title {
@@ -33,7 +42,7 @@
 
 .Folder-Content {
   font-size: 2em;
-  color: orange;
+  color: black;
 }
 
 .Folder-Content ul {
@@ -42,7 +51,7 @@
 }
 .Folder-Content li {
   
- margin-top:1em;
+ margin-top:0.5em;
 }
 .Sub-Folder{
   color:blue;

@@ -2,7 +2,9 @@
 Web page using that simulate folders explorer on web browser, using React.JS and TypeScript.
 # Installation and usage:
 cd folders-explorer
+
 npm install
+
 npm start
 
 # Code

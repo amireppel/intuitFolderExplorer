@@ -39,6 +39,14 @@
   font-size: 2em;
   color: green;
 }
+.Parent-Folder{
+  cursor: pointer;
+  color:blue;
+}
+.Current-Folder{
+  
+  color:green;
+}
 
 .Folder-Content {
   font-size: 2em;

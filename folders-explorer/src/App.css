@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  width: 30em;
+  margin: auto;
+}
+
+.App-Header {
+  margin-top: 0.5em;
+  font-size: 2.5em;
+  color: blue;
+}
+
+.Back-Arrow {
+  font-size: 2em;
+  color: green;
+  cursor: pointer;
+}
+
+.Root-Folder {
+  font-size: 2em;
+  color: green;
+}
+
+.Folder-Name-Title {
+  font-size: 2em;
+  color: blue;
+}
+
+.Folder-Name {
+  font-size: 2em;
+  color: green;
+}
+
+.Folder-Content {
+  font-size: 2em;
+  color: orange;
+}
+
+.Folder-Content ul {
+  
+  font-size:0.7em;
+}
+.Folder-Content li {
+  
+ margin-top:1em;
+}
+.Sub-Folder{
+  color:blue;
+  cursor: pointer;
+  font-size:1.3em;
+
+}
+.File{
+  color:green;
+  text-align:left
+}
+.File-Content-Header{
+  color:blue;
+}

@@ -9,5 +9,6 @@ npm start
 
 # Code
 folders-explorer/src/App.tsx: react component of the app.
+
 folders-explorer/src/data.js: contains array of files , from which the folder structure is built.
 

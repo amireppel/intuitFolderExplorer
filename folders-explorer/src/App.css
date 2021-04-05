@@ -1,16 +1,16 @@
-
-@media only screen and (max-width: 600px){
-.App {
- margin-left:1em;
-  
-}
-}
-@media only screen and (min-width: 600px){
+@media only screen and (max-width: 600px) {
   .App {
-   margin-left:4em;
-    
+    margin-left: 1em;
   }
 }
+
+@media only screen and (min-width: 600px) {
+  .App {
+    margin-left: 4em;
+    max-width: 20%;
+  }
+}
+
 .App-Header {
   margin-top: 0.5em;
   font-size: 2.5em;
@@ -25,7 +25,6 @@
 }
 
 .Root-Folder {
- 
   color: green;
   min-height: 3em;
 }
@@ -35,17 +34,34 @@
   color: blue;
 }
 
+.Container {
+  max-width: 1em;
+}
+
 .Folder-Name {
   font-size: 2em;
   color: green;
+  width: 1em;
 }
-.Parent-Folder{
-  cursor: pointer;
-  color:blue;
+
+@media only screen and (max-width: 600px) {
+  .Parent-Folder {
+    display: none;
+  }
 }
-.Current-Folder{
-  
-  color:green;
+
+
+@media only screen and (min-width: 601px) {
+  .Parent-Folder {
+    display: inline;
+    color: blue;
+    cursor: pointer;
+  }
+}
+
+.Current-Folder {
+  display: inline;
+  color: green;
 }
 
 .Folder-Content {
@@ -54,23 +70,24 @@
 }
 
 .Folder-Content ul {
-  
-  font-size:0.7em;
+  font-size: 0.7em;
 }
-.Folder-Content li {
-  
- margin-top:0.5em;
-}
-.Sub-Folder{
-  color:blue;
-  cursor: pointer;
-  font-size:1.3em;
 
+.Folder-Content li {
+  margin-top: 0.5em;
 }
-.File{
-  color:green;
-  text-align:left
+
+.Sub-Folder {
+  color: blue;
+  cursor: pointer;
+  font-size: 1.3em;
 }
-.File-Content-Header{
-  color:blue;
+
+.File {
+  color: green;
+  text-align: left
+}
+
+.File-Content-Header {
+  color: blue;
 }

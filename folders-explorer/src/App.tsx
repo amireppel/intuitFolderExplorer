@@ -47,7 +47,7 @@ function App() {
     return parentFolder
   }
   useEffect(() => {
-    let folderBase: FileFolder = { parentFolder: null, folderContent: null, fileContent: null, displayName: 'project-Explorer' }
+    let folderBase: FileFolder = { parentFolder: null, folderContent: null, fileContent: null, displayName: 'projectExplorer' }
     data.forEach((item, index) => {
       let idNoSpaces = item.id.replace(/\s/g, '').split(':')
       folderBase = insertToTree(folderBase, idNoSpaces, { lastUpdated: item.lastUpdated })
@@ -80,16 +80,19 @@ function App() {
   }
   return (
     <div className="App">
-       {fileFolder !== null ? <div>
+      {fileFolder !== null ? <div>
         <div className="App-Header">Folder Explorer</div>
         {fileFolder.parentFolder !== null ? (<div className="Back-Arrow" onClick={() => setFolder(fileFolder.parentFolder)}>&#8629;</div>) : <div className="Root-Folder"></div>}
         <div className="Folder-Name-Title">Folder name:</div>
+
         <div className="Folder-Name">
-        {parentFoldersArray.map((item, index) => {
-                     return <span key={index} className="Parent-Folder" onClick={() =>setFolder(item) }
-             >{item.displayName}/</span>
+
+          {parentFoldersArray.map((item, index) => {
+            return <div key={index} className="Parent-Folder" onClick={() => setFolder(item)}
+            >{item.displayName}/</div>
           })}
-          <span className="Current-Folder">{fileFolder.displayName}</span>
+          <div className="Current-Folder">{fileFolder.displayName}</div>
+
         </div>
         {(fileFolder.folderContent !== null && fileFolder.folderContent.length > 0) ?
           <div className="Folder-Content">Content:
@@ -109,8 +112,10 @@ function App() {
                 }
               })}
             </ul>
-          </div> : null}
+          </div>
+          : null}
       </div> : null}
+
     </div>
   );
 }

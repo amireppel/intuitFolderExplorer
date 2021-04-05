@@ -5,7 +5,7 @@ import {insertToTree, FileFolder} from './foldersGeneartor'
 
 function App() {
   const [fileFolder, setFolder] = useState<FileFolder | null>(null)
-  /*recursive function that generate the data tree structure*/
+
   
   useEffect(() => {
     /*default root folder*/

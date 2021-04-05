@@ -1,53 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import data from './data'
-type FileContent = {
-  lastUpdated: {
-    updatedAt: string;
-    updatedBy: string;
-  }
-}
-type FileFolder = {
-  parentFolder: FileFolder | null;
-  folderContent: Array<FileFolder> | null;
-  fileContent: FileContent | null;
-  displayName: string;
-}
-interface GenerateFolder {
-  parentFolder: FileFolder | null,
-  foldersList: Array<string>, content: FileContent | null
-}
+import {insertToTree, FileFolder} from './foldersGeneartor'
+
 function App() {
   const [fileFolder, setFolder] = useState<FileFolder | null>(null)
-  const insertToTree = (parentFolder: FileFolder,
-    foldersList: Array<string>, content: FileContent | null): FileFolder => {
-    /*when reaching last name in the list, its the file name the inserting the file and return
-    */
-    let currentName = '';
-    currentName = foldersList.shift() || ''
-    if (parentFolder.folderContent == null) {
-      parentFolder.folderContent = []
-    }
-    if (foldersList.length == 0) {
-      let newFile = {
-        parentFolder: parentFolder, displayName: currentName, fileContent: content,
-        folderContent: null
-      }
-      parentFolder.folderContent.push(newFile)
-    }
-    else {
-      let folder = parentFolder.folderContent.find(folder => folder.displayName == currentName)
-      if (folder === undefined) {
-        folder = { parentFolder: parentFolder, displayName: currentName, fileContent: null, folderContent: [] }
-        parentFolder.folderContent.push(folder)
-      }
-      insertToTree(folder, foldersList, content)
-    }
-    return parentFolder
-  }
+  /*recursive function that generate the data tree structure*/
+  
   useEffect(() => {
+    /*default root folder*/
     let folderBase: FileFolder = { parentFolder: null, folderContent: null, fileContent: null, displayName: 'projectExplorer' }
+
     data.forEach((item, index) => {
       let idNoSpaces = item.id.replace(/\s/g, '').split(':')
       folderBase = insertToTree(folderBase, idNoSpaces, { lastUpdated: item.lastUpdated })
@@ -57,25 +20,17 @@ function App() {
   },
     [])
   let i = true
-  let folderStruct = '';
-  let currentFolder = '';
   let parentFoldersArray = []
   if (fileFolder !== null) {
-
     let parentFolder = fileFolder.parentFolder
     while (i !== false) {
-
       if (parentFolder !== null) {
-
         parentFoldersArray.unshift(parentFolder)
         parentFolder = parentFolder.parentFolder
-
       }
       else {
         i = false
       }
-
-
     }
   }
   return (

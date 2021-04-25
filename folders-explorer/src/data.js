@@ -1,6 +1,6 @@
 const entities = [
      {
-         "id": "urn:intuit: customersuccess: customer360: CSGoldCompany",
+         "id": "urn:intuit: customersuccess: customer360:CSGoldCompany",
          "displayName": "CSGoldCompany",
          "lastUpdated": {
              "updatedAt": "2020-11-02T16: 44:56.538734Z",
@@ -8,7 +8,7 @@ const entities = [
          }
      },
      {
-         "id": "urn:intuit: customersuccess: customer360: CSGoldPerson",
+         "id": "urn:intuit:customersuccess: customer360:CSGoldPerson",
          "displayName": "CSGoldPerson",
          "lastUpdated": {
              "updatedAt": "2020-11-02T16: 44:56.538734Z",

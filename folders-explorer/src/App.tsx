@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import data from './data'
 import {insertToTree, FileFolder} from './foldersGeneartor'
+import FolderContent from './folderContent'
+interface Props {
+  data: Array<any>
+ 
 
-function App() {
+}
+function App(props:Props) {
   const [fileFolder, setFolder] = useState<FileFolder | null>(null)
 
   
@@ -11,14 +16,14 @@ function App() {
     /*default root folder*/
     let folderBase: FileFolder = { parentFolder: null, folderContent: null, fileContent: null, displayName: 'projectExplorer' }
 
-    data.forEach((item, index) => {
+    props.data.forEach((item, index) => {
       let idNoSpaces = item.id.replace(/\s/g, '').split(':')
       folderBase = insertToTree(folderBase, idNoSpaces, { lastUpdated: item.lastUpdated })
     })
 
     setFolder(folderBase)
   },
-    [])
+    [props.data])
   let i = true
   let parentFoldersArray = []
   if (fileFolder !== null) {
@@ -36,7 +41,7 @@ function App() {
   return (
     <div className="App">
       {fileFolder !== null ? <div>
-        <div className="App-Header">Folder Explorer</div>
+        <div className="App-Header">Folders Explorer</div>
         {fileFolder.parentFolder !== null ? (<div className="Back-Arrow" onClick={() => setFolder(fileFolder.parentFolder)}>&#8629;</div>) : <div className="Root-Folder"></div>}
         <div className="Folder-Name-Title">Folder name:</div>
 
@@ -50,24 +55,7 @@ function App() {
 
         </div>
         {(fileFolder.folderContent !== null && fileFolder.folderContent.length > 0) ?
-          <div className="Folder-Content">Content:
-          <ul>
-              {fileFolder.folderContent.map((item, index) => {
-                let fileContent = item.fileContent
-                if (fileContent === null) {
-                  return <li key={index} className="Sub-Folder" onClick={() => {
-                    { setFolder(item) }
-                  }} >{item.displayName}</li>
-                }
-                else {
-                  return <li key={index} className="File" ><span className="File-Content-Header">File name: </span><span>{item.displayName},</span> <span
-                    className="File-Content-Header">updated at: </span>
-                    <span >{fileContent.lastUpdated.updatedAt},</span>
-                    <span className="File-Content-Header">updated by: </span><span>{fileContent.lastUpdated.updatedBy}</span></li>
-                }
-              })}
-            </ul>
-          </div>
+         <FolderContent setFolder={setFolder} folderContent={fileFolder.folderContent}/>
           : null}
       </div> : null}
 

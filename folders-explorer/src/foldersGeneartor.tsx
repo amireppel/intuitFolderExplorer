@@ -17,6 +17,7 @@ const insertToTree = (parentFolder: FileFolder,
     */
     let currentName = '';
     currentName = foldersList.shift() || ''
+    currentName = currentName.trim()
     if (parentFolder.folderContent === null) {
       parentFolder.folderContent = []
     }

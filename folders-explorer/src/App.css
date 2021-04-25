@@ -38,31 +38,50 @@
   max-width: 1em;
 }
 
-.Folder-Name {
-  font-size: 2em;
-  color: green;
-  width: 1em;
-}
+
 
 @media only screen and (max-width: 600px) {
+  .Folder-Name {
+    font-size: 2em;
+    color: green;
+    width: 7em;
+  }
   .Parent-Folder {
-    display: none;
+    display: inline-block;
+    width:6em;
+    color: blue;
+    cursor: pointer;
+  }
+  .Current-Folder {
+    display: inline-block;
+    width:6em;
+    cursor: pointer;
+    color: green;
   }
 }
 
 
 @media only screen and (min-width: 601px) {
+  .Folder-Name {
+    font-size: 2em;
+    color: green;
+    width: 20em;
+  }
   .Parent-Folder {
-    display: inline;
+    display: inline-block;
     color: blue;
     cursor: pointer;
+    width: fit-content;
+
+  }
+  .Current-Folder {
+    display: inline-block;
+    color: green;
+    width: fit-content;
   }
 }
 
-.Current-Folder {
-  display: inline;
-  color: green;
-}
+
 
 .Folder-Content {
   font-size: 2em;
